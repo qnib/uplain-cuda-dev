@@ -26,6 +26,6 @@ RUN apt-get update \
  && apt-get update \
  && apt-get install -y --no-install-recommends \
           cuda-${CUDA_VER}-${CUDA_PATCH_VER}=${CUDA_VER}.${CUDA_PATCH_VER} \
-          nvidia-driver-${CUDA_DRV_MAJOR_VER}=${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}-0ubuntu1
+          nvidia-driver-${CUDA_DRV_MAJOR_VER}=${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}-0ubuntu1 \
  && rm -rf /var/lib/apt/lists/*
 CMD ["/usr/lib/nvidia/bin/nvidia-smi", "-L"]

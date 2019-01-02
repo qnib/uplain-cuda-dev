@@ -16,6 +16,8 @@ ENV CUDA_DRV_MAJOR_VER=410
 ENV CUDA_DRV_MINOR_VER=79
 ENV CUDA_DRV_PATCH_VER=0ubuntu1
 ARG UBUNTU_VER=1604
+LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
+LABEL org.qnib.image.node.features=nvidia-${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends wget gnupg2 \

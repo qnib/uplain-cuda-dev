@@ -10,6 +10,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 ENV CUDA_VER=10.0
 ENV CUDA_PATCH_VER=130-1
+ENV CUDA_DRV_MAJOR_VER=410
+ENV CUDA_DRV_MINOR_VER=79
 ARG UBUNTU_VER=1804
 #LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
 LABEL org.qnib.image.node.features=nvidia-${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}
@@ -22,6 +24,8 @@ RUN apt-get update \
  && dpkg -i cuda-repo-ubuntu${UBUNTU_VER}_${CUDA_VER}.${CUDA_PATCH_VER}_amd64.deb \
  && apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub \
  && apt-get update \
- && apt-get install -y --no-install-recommends cuda-10-0=${CUDA_VER}.${CUDA_PATCH_VER} \
+ && apt-get install -y --no-install-recommends \
+          cuda-${CUDA_VER}-${CUDA_PATCH_VER}=${CUDA_VER}.${CUDA_PATCH_VER} \
+          nvidia-driver-${CUDA_DRV_MAJOR_VER}=${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}-0ubuntu1
  && rm -rf /var/lib/apt/lists/*
 CMD ["/usr/lib/nvidia/bin/nvidia-smi", "-L"]

@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 ENV CUDA_VER=10.0
 ENV CUDA_PATCH_VER=130-1
 ARG UBUNTU_VER=1804
-LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
+#LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
 LABEL org.qnib.image.node.features=nvidia-${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}
 
 

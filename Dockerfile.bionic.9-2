@@ -15,7 +15,7 @@ ENV CUDA_DRV_MAJOR_VER=396
 ENV CUDA_DRV_MINOR_VER=44
 ENV CUDA_DRV_PATCH_VER=0ubuntu1
 ARG UBUNTU_VER=1710
-LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
+#LABEL org.qnib.image.node.features=cuda-${CUDA_MAJOR_VER}.${CUDA_MINOR_VER}
 LABEL org.qnib.image.node.features=nvidia-${CUDA_DRV_MAJOR_VER}.${CUDA_DRV_MINOR_VER}
 
 RUN apt-get update \
